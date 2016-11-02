@@ -126,7 +126,7 @@ OUString AsyncJobImpl::validateGetInfo( const Sequence<NamedValue>& rArgs,
 					AsyncJobImpl::AsyncJobImplInfo& rJobInfo )
 {
     if ( !rxListener.is() )
-	return "Listener : invalid listener";
+	return OUString("Listener : invalid listener");
 
     // Extract all sublists from rArgs.
     Sequence<NamedValue> aGenericConfig;
@@ -161,7 +161,7 @@ OUString AsyncJobImpl::validateGetInfo( const Sequence<NamedValue>& rArgs,
 
     // Analyze the environment info. This sub list is the only guaranteed one!
     if ( !aEnvironment.hasElements() )
-	return "Args : no environment";
+	return OUString("Args : no environment");
 
     sal_Int32 nNumEnvEntries = aEnvironment.getLength();
     for ( sal_Int32 nIdx = 0; nIdx < nNumEnvEntries; ++nIdx )
@@ -193,7 +193,7 @@ OUString AsyncJobImpl::validateGetInfo( const Sequence<NamedValue>& rArgs,
 		aGenericConfig[nIdx].Value >>= rJobInfo.aAlias;
     }
 
-    return "";
+    return OUString("");
 }
 
 
